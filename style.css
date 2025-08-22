@@ -108,9 +108,9 @@ button{
         border-radius: 0;
     }
     input {
-        font-size: 3rem;         /* Increased font size for better visibility */
-        padding: 28px 12px;      /* Increased padding for a larger display area */
-        height: 16vh;            /* Make display taller */
+        font-size: 3rem;         
+        padding: 28px 12px;      
+        height: 16vh;      
         min-height: 80px;
         margin-bottom: 18px;
     }

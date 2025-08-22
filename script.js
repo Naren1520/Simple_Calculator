@@ -5,29 +5,32 @@ let string = "";
 let arr = Array.from(buttons);
 arr.forEach(button => {
     button.addEventListener("click", (e) => {
-        if (e.target.innerHTML == '=')
-            {
-            string = eval(string);          //inbuilt function in js to evaluate string
+        if (e.target.innerHTML == '=') {
+            let expression = string.replace(/×/g, '*').replace(/÷/g, '/').replace(/%/g, '/100');
+            string = eval(expression);
             input.value = string;
         }
-        else if (e.target.innerHTML == 'AC')
-            {
+        else if (e.target.innerHTML == 'AC') {
             string = "";
             input.value = string;
         }
-        else if (e.target.innerHTML == 'DEL')
-            {
+        else if (e.target.innerHTML == 'DEL') {
             string = string.slice(0, -1);
             input.value = string;
+        }
+        else if (e.target.innerHTML == '%') {
+            if (string) {
+                string = (parseFloat(string) / 100).toString(); // Calculate percentage of current value
+                input.value = string;
+            }
         }
         else if (e.target.innerHTML == 'C') {
             string = "";
             input.value = string;
-        }else {
+        } else {
             string += e.target.innerHTML;
             input.value = string;
         }
-        
     })
 })
 //By Naren S.J
